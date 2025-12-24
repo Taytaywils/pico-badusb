@@ -1,6 +1,7 @@
 from board import GP1
 from digitalio import DigitalInOut, Pull
 from storage import disable_usb_drive
+import wifi_ap
 
 # Boot handler class
 class Boot:
@@ -12,3 +13,6 @@ class Boot:
         
         if not gp1.value:
             disable_usb_drive()
+
+    def start_wifi(self):
+        self.pool = wifi_ap.start()
